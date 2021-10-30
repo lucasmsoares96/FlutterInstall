@@ -4,7 +4,7 @@ cd $HOME
 
 # Desinstalar
 echo '    >>>    Removendo a instalação anterior'
-rm -rf .android .android-studio .flutter .pub-cache .java .cache/Google/ .config/flutter/ .config/Google/ Android .emulator_console_auth_token
+rm -rf .android .android-studio .flutter .pub-cache .java .cache/Google/ .config/flutter/ .config/Google/ Android .emulator_console_auth_token .local/share/applications/jetbrains-studio.desktop
 echo ''
 
 # Instalar Flutter
@@ -23,6 +23,19 @@ echo ''
 # Configurar o Android Studio
 echo '    >>>    Configurando o Android Studio'
 $HOME/.android-studio/bin/studio.sh
+echo "[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Android Studio
+Icon=$HOME/.android-studio/bin/studio.svg
+Exec="$HOME/.android-studio/bin/studio.sh" %f
+Comment=The Drive to Develop
+Categories=Development;IDE;
+Terminal=false
+StartupWMClass=jetbrains-studio
+StartupNotify=true
+" > $HOME/.local/share/applications/jetbrains-studio.desktop
+#/usr/share/applications/jetbrains-studio.desktop
 echo ''
 
 # Instalar Comand Line Tools
